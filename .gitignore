@@ -1,0 +1,88 @@
+# =============================================================================
+# GITIGNORE - ARQUIVO DE CONFIGURAÇÃO DO GIT
+# =============================================================================
+# Este arquivo especifica quais arquivos e pastas NÃO devem ser versionados
+# no repositório Git. Evita commitar código gerado, dependências e arquivos
+# sensíveis (como credenciais e chaves).
+# =============================================================================
+
+# =============================================================================
+# DEPENDÊNCIAS (PACOTES NPM)
+# =============================================================================
+# Pasta contendo todos os pacotes instalados via npm
+# Não deve ser commitada pois é regenerada com "npm install"
+node_modules/
+
+# Arquivos de log do npm e yarn (ferramentas de gerenciamento de pacotes)
+# Criados durante instalação ou execução de scripts
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# =============================================================================
+# ARQUIVOS DE PRODUÇÃO (BUILD)
+# =============================================================================
+# Pasta com código TypeScript compilado para JavaScript
+dist/
+
+# Pasta de build padrão (pode ser gerada por diferentes ferramentas)
+build/
+
+# Pasta gerada pelo Next.js durante o build (.next/)
+.next/
+
+# Pasta de output de exports no Next.js
+out/
+
+# =============================================================================
+# ARQUIVOS DIVERSOS E SENSÍVEIS
+# =============================================================================
+# Arquivo do macOS que contém atributos de pastas
+.DS_Store
+
+# Arquivos PEM (certificados SSL/TLS, chaves privadas)
+# Não devem ser commitados por segurança
+*.pem
+
+# Arquivos de variáveis de ambiente (contêm credenciais sensíveis)
+# IMPORTANTE: Nunca commitar estes arquivos!
+.env
+.env.local
+.env*.local
+
+# =============================================================================
+# ARQUIVOS DE EDITORES DE CÓDIGO (IDE)
+# =============================================================================
+# Configurações do JetBrains (WebStorm, PhpStorm, IntelliJ)
+.idea/
+
+# Configurações do Visual Studio Code
+.vscode/
+
+# Arquivos temporários de edição vi/vim
+*.swp
+*.swo
+
+# Arquivos de backup
+*~
+
+# Arquivos de configuração do Eclipse
+.project
+.classpath
+
+# Arquivos do Cloud9 (IDE online)
+.c9/
+*.launch
+.settings/
+
+# Arquivos de workspace do Sublime Text
+*.sublime-workspace
+
+# =============================================================================
+# ARQUIVOS DO SISTEMA OPERACIONAL
+# =============================================================================
+# Arquivo de índice do Windows (similar ao .DS_Store do macOS)
+Thumbs.db
+
+# Pasta de cache do sistema
+.cache/
