@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 services:
  db:
   image: mysql:8.0
@@ -46,3 +47,53 @@ services:
 networks:
   projetoaccte-network:
     driver: bridge
+=======
+services:
+ db:
+  image: mysql:8.0
+  restart: always
+  environment:
+      MYSQL_DATABASE: backend_db
+      MYSQL_ROOT_PASSWORD: root_password
+  ports:
+     - "3306:3306"
+ backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: projetoaccte-backend-modelo
+    ports:
+      - "3001:3001"
+    environment:
+      - NODE_ENV=development
+      - PORT=3001
+    volumes:
+      - ./backend/src:/app/src
+      - ./backend/package.json:/app/package.json
+    networks:
+      - projetoaccte-network
+    restart: unless-stopped
+
+
+ frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: projetoaccte-frontend-modelo
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_API_URL=http://backend:3001
+    depends_on:
+      - backend
+    volumes:
+      - ./frontend/src:/app/src
+      - ./frontend/package.json:/app/package.json
+    networks:
+      - projetoaccte-network
+    restart: unless-stopped
+
+networks:
+  projetoaccte-network:
+    driver: bridge
+>>>>>>> 1dcb35b57e88cf80546c0044b3716bd0bd2b0e25
